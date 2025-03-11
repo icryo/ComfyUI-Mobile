@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile-Comfy</title>
+  <style>
+    html {
+      height: 100%;
+    }
+    html, body {
+      background: #333;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    #maingen {
+      margin: 0;
+      width: 100%;
+      height: auto;
+      max-width: 512px;
+      background: #111;
+      border-radius: 6px;
+    }
+    #prompt {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5em;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      font-size: 1.4em;
+      background-color: #bbb;
+    }
+    /* Modal styling */
+    #settings-modal {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 20%;
+      width: 60%;
+      background: #222;
+      color: #eee;
+      border: 1px solid #444;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .setting-item {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+  <script>
+    const password = "asdf";  // Set your desired password
+    if (localStorage.getItem("auth") !== "true") {
+      const userPass = prompt("Enter Password:");
+      if (userPass === password) {
+        localStorage.setItem("auth", "true");
+      } else {
+        alert("Incorrect password");
+        document.body.innerHTML = "Access Denied";
+      }
+    }
+  </script>
+<body>
+  <textarea id="prompt">detailed,detailed background,holographic color,masterpiece,best quality,amazing quality,very aesthetic,absurdres,newest,volumetric lighting,</textarea>
+  <br>
+  <img src="" width="512" height="512" alt="mob" id="maingen" />
+  <br>
+  <br>
+  <!-- Settings Button -->
+  <button id="settings-button" style="margin-top: 10px;">Settings</button>
+  
+<div id="settings-modal">
+  <h2>Select Model</h2>
+  <div class="setting-item">
+    <label for="model-select">Model:</label>
+    <select id="model-select">
+      <!-- Options will be populated dynamically -->
+    </select>
+  </div>
+  <div class="setting-item">
+    <label for="width-slider">Width: <span id="width-value">512</span></label>
+    <input id="width-slider" type="range" min="128" max="1024" value="512" />
+  </div>
+  <div class="setting-item">
+    <label for="height-slider">Height: <span id="height-value">1024</span></label>
+    <input id="height-slider" type="range" min="128" max="1024" value="1024" />
+  </div>
+  <div class="setting-item">
+    <label for="cfg-slider">CFG: <span id="cfg-value">8</span></label>
+    <input id="cfg-slider" type="range" min="1" max="10" value="8" />
+  </div>
+  <div class="setting-item">
+    <label for="steps-slider">Steps: <span id="steps-value">25</span></label>
+    <input id="steps-slider" type="range" min="1" max="100" value="25" />
+  </div>
+  <br />
+  <button id="save-settings">Save</button>
+  <button id="close-settings">Close</button>
+</div>
+
+  
+  <script src="/mob/js/app.js"></script>
+</body>
+</html>
