@@ -64,7 +64,7 @@
   },
   "7": {
     "inputs": {
-      "text": "text, watermark,ng_deepnegative_v1_75t, badhandv4, (worst quality, normal quality, low quality:1.7)",
+      "text": "text, watermark,ng_deepnegative_v1_75t, badhandv4, (worst quality, normal quality, low quality:1.7), paintings, sketches, freckles, low res, monochrome, grayscale, bad proportions, watermark, signature, text, curvy, plump, fat, muscular female, easynegative, EasyNegativeV2, earring,",
       "clip": [
         "4",
         1

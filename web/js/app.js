@@ -6,7 +6,7 @@
 
     // Load the workflow
     async function loadWorkflow() {
-        const response = await fetch('/fastgen/js/base_workflow.json');
+        const response = await fetch('/mob/js/base_workflow.json');
         return await response.json();
     }
     const workflow = await loadWorkflow();
@@ -56,7 +56,6 @@
     _prompt.value = "detailed,detailed background,holographic color,masterpiece,best quality,amazing quality,very aesthetic,absurdres,newest,volumetric lighting,";
     _prompt.focus();
     _prompt.setSelectionRange(_prompt.value.length, _prompt.value.length);
-    const _cfgrescale = document.getElementById('cfgrescale');
     let cachedPrompt = _prompt.value;
     let lastExecutedPrompt = null;
 
